@@ -49,7 +49,7 @@ current_user = None
 class BookAppointmentDialog(QDialog):
     def __init__(self, parent=None, patient_name=""):
         super().__init__(parent)
-        self.setWindowTitle("Book Appointment")
+        self.setWindowTitle("Book Appointments!")
         self.setFixedSize(500, 440)
         self.setStyleSheet("""
             QDialog { background-color: #f0f6ff; }
