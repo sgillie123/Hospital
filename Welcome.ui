@@ -13,7 +13,7 @@
   <widget class="QLabel" name="titleLabel">
    <property name="geometry"><rect><x>0</x><y>80</y><width>900</width><height>70</height></rect></property>
    <property name="styleSheet"><string notr="true">color: rgb(57, 60, 255); font-size: 26pt; font-weight: bold;</string></property>
-   <property name="text"><string>Hospital Management System</string></property>
+   <property name="text"><string>Dont Drop Dead Hospital</string></property>
    <property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property>
   </widget>
 
