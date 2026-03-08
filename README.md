@@ -1,6 +1,6 @@
 # Dont Drop Dead — Hospital Management System
 
-Part 1 to a hospital management system built with Python and PyQt6 for managing patients, doctors, and staff.
+Part 1 to a hospital management system built with Python and PyQt6 on Designer for managing patients, doctors, and staff.
 
 ## How to Run
 
