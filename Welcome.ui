@@ -29,7 +29,7 @@
     <string notr="true">color: rgb(57, 60, 255); font-size: 26pt; font-weight: bold;</string>
    </property>
    <property name="text">
-    <string>Dont Drop Dead </string>
+    <string>Dont Drop Dead</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignmentFlag::AlignCenter</set>
