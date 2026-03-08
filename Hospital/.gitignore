@@ -1,0 +1,18 @@
+# virtual environment
+.venv/
+venv/
+env/
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# ide stuff
+.vscode/
+.idea/
+*.suo
+
+# windows stuff
+Thumbs.db
+desktop.ini
