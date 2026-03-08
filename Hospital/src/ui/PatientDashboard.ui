@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Patient Portal</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(226, 241, 255);</string>
+  </property>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>1000</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 24pt; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>Patient Portal</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="patientNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>700</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 16pt; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>Welcome, Patient Name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="patientInfoLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>110</y>
+     <width>700</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>email@email.com  |  DOB: 01/01/1990</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BookAppointmentButton">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>85</y>
+     <width>170</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 12pt; font-weight: bold; border-radius: 8px;</string>
+   </property>
+   <property name="text">
+    <string>+ Book Appointment</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LogoutButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>650</y>
+     <width>100</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 11pt; border-radius: 6px;</string>
+   </property>
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="calendarGroup">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>150</y>
+     <width>400</width>
+     <height>260</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+     QGroupBox {
+      font-size: 14pt;
+      font-weight: bold;
+      color: rgb(57, 60, 255);
+      border: 2px solid rgb(57, 60, 255);
+      border-radius: 10px;
+      margin-top: 15px;
+      padding-top: 15px;
+      background-color: white;
+     }
+     QGroupBox::title {
+      subcontrol-origin: margin;
+      left: 15px;
+      padding: 0 10px 0 10px;
+     }
+    </string>
+   </property>
+   <property name="title">
+    <string>Calendar</string>
+   </property>
+   <layout class="QVBoxLayout" name="calendarLayout">
+    <item>
+     <widget class="QCalendarWidget" name="patientCalendar">
+      <property name="styleSheet">
+       <string notr="true">        QCalendarWidget {
+         background-color: white;
+         border-radius: 5px;
+        }
+        QCalendarWidget QToolButton {
+         color: rgb(57, 60, 255);
+         font-size: 10pt;
+         font-weight: bold;
+        }
+        QCalendarWidget QMenu {
+         width: 150px;
+         color: white;
+         background-color: rgb(57, 60, 255);
+        }
+        QCalendarWidget QSpinBox {
+         width: 100px;
+         font-size: 10pt;
+         color: rgb(57, 60, 255);
+         background-color: white;
+        }
+        QCalendarWidget QTableView {
+         background-color: white;
+         selection-background-color: rgb(57, 60, 255);
+         selection-color: white;
+        }
+        QCalendarWidget QAbstractItemView:enabled {
+         color: rgb(0, 0, 0);
+         background-color: white;
+         selection-background-color: rgb(57, 60, 255);
+         selection-color: white;
+        }
+        QCalendarWidget QWidget#qt_calendar_navigationbar {
+         background-color: rgb(57, 60, 255);
+        }
+        QCalendarWidget QToolButton {
+         color: white;
+         background-color: transparent;
+         font-size: 11pt;
+         font-weight: bold;
+        }
+       </string>
+      </property>
+      <property name="gridVisible">
+       <bool>true</bool>
+      </property>
+      <property name="verticalHeaderFormat">
+       <enum>QCalendarWidget::VerticalHeaderFormat::NoVerticalHeader</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="apptLabel">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>150</y>
+     <width>520</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 16pt; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>My Appointments</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="AppointmentsTable">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>185</y>
+     <width>520</width>
+     <height>225</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+     QTableWidget {
+      background-color: white;
+      font-size: 11pt;
+      color: rgb(0,0,0);
+      border: 2px solid rgb(57, 60, 255);
+      border-radius: 8px;
+      gridline-color: #e2e8f0;
+     }
+     QHeaderView::section {
+      background-color: rgb(57, 60, 255);
+      color: white;
+      font-size: 11pt;
+      font-weight: bold;
+      padding: 8px;
+      border: none;
+     }
+     QTableWidget::item {
+      padding: 5px;
+      border-bottom: 1px solid #e2e8f0;
+     }
+    </string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>5</number>
+   </property>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>80</number>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Time</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Doctor</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Reason</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Status</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QLabel" name="recordsLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>430</y>
+     <width>940</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 16pt; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>Medical Records</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="RecordsTable">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>465</y>
+     <width>940</width>
+     <height>170</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+     QTableWidget {
+      background-color: white;
+      font-size: 11pt;
+      color: rgb(0,0,0);
+      border: 2px solid rgb(57, 60, 255);
+      border-radius: 8px;
+      gridline-color: #e2e8f0;
+     }
+     QHeaderView::section {
+      background-color: rgb(57, 60, 255);
+      color: white;
+      font-size: 11pt;
+      font-weight: bold;
+      padding: 8px;
+      border: none;
+     }
+     QTableWidget::item {
+      padding: 5px;
+      border-bottom: 1px solid #e2e8f0;
+     }
+    </string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>4</number>
+   </property>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Doctor</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Diagnosis</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Notes</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

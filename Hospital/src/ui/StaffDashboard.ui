@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Staff Portal</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(226, 241, 255);</string>
+  </property>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>1000</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 20pt; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>Staff / Receptionist Portal</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="staffGreeting">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>600</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 12pt;</string>
+   </property>
+   <property name="text">
+    <string>Welcome, Staff Member</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="LogoutButton">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>80</y>
+     <width>90</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 10pt; border-radius: 4px;</string>
+   </property>
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="regLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>115</y>
+     <width>300</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 12pt; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>Register New Patient</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lPatName">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>160</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>Full Name *</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PatName">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>157</y>
+     <width>270</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 11pt; color: rgb(0,0,0); background-color: white;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lPatDOB">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>157</y>
+     <width>131</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>Date of Birth *</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="PatDOB">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>157</y>
+     <width>167</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 11pt; color: rgb(120, 120, 120); background-color: white; border-radius: 4px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lPatGender">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>160</y>
+     <width>81</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>Gender</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="PatGender">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>157</y>
+     <width>100</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 11pt; background-color: white; color: rgb(0,0,0);</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Male</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Female</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Other</string>
+    </property>
+   </item>
+  </widget>
+  
+  <widget class="QLabel" name="lPatEmail">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>205</y>
+     <width>90</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>Email</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PatEmail">
+   <property name="geometry">
+    <rect>
+     <x>125</x>
+     <y>202</y>
+     <width>270</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 11pt; color: rgb(0,0,0); background-color: white;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lPatPhone">
+   <property name="geometry">
+    <rect>
+     <x>415</x>
+     <y>205</y>
+     <width>90</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>Phone #</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PatPhone">
+   <property name="geometry">
+    <rect>
+     <x>515</x>
+     <y>202</y>
+     <width>355</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 11pt; color: rgb(0,0,0); background-color: white;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lBloodType">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>250</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>Blood Type</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="BloodType">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>247</y>
+     <width>101</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 11pt; background-color: white; color: rgb(0,0,0);</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>A+</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>A-</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>B+</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>B-</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>AB+</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>AB-</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>O+</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>O-</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Unknown</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="lEmergContact">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>247</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>Emergency Contact</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="EmergContact">
+   <property name="geometry">
+    <rect>
+     <x>459</x>
+     <y>247</y>
+     <width>411</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 11pt; color: rgb(0,0,0); background-color: white;</string>
+   </property>
+   <property name="placeholderText">
+    <string>Name — Phone</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RegisterPatientButton">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>295</y>
+     <width>240</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 13pt; border-radius: 5px;</string>
+   </property>
+   <property name="text">
+    <string>Register Patient</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="calendarGroup">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>350</y>
+     <width>400</width>
+     <height>300</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+     QGroupBox {
+      font-size: 12pt;
+      font-weight: bold;
+      color: rgb(57, 60, 255);
+      border: 2px solid rgb(57, 60, 255);
+      border-radius: 8px;
+      margin-top: 10px;
+      padding-top: 10px;
+      background-color: white;
+     }
+     QGroupBox::title {
+      subcontrol-origin: margin;
+      left: 10px;
+      padding: 0 5px 0 5px;
+     }
+    </string>
+   </property>
+   <property name="title">
+    <string>Appointment Overview</string>
+   </property>
+   <layout class="QVBoxLayout" name="calendarLayout">
+    <item>
+     <widget class="QCalendarWidget" name="staffCalendar">
+      <property name="styleSheet">
+       <string notr="true">        QCalendarWidget {
+         background-color: white;
+         border-radius: 5px;
+        }
+        QCalendarWidget QToolButton {
+         color: rgb(57, 60, 255);
+         font-size: 10pt;
+         font-weight: bold;
+        }
+        QCalendarWidget QMenu {
+         width: 150px;
+         color: white;
+         background-color: rgb(57, 60, 255);
+        }
+        QCalendarWidget QSpinBox {
+         width: 100px;
+         font-size: 10pt;
+         color: rgb(57, 60, 255);
+         background-color: white;
+        }
+        QCalendarWidget QTableView {
+         background-color: white;
+         selection-background-color: rgb(57, 60, 255);
+         selection-color: white;
+        }
+        QCalendarWidget QAbstractItemView:enabled {
+         color: rgb(0, 0, 0);
+         background-color: white;
+         selection-background-color: rgb(57, 60, 255);
+         selection-color: white;
+        }
+        QCalendarWidget QWidget#qt_calendar_navigationbar {
+         background-color: rgb(57, 60, 255);
+        }
+        QCalendarWidget QToolButton {
+         color: white;
+         background-color: transparent;
+         font-size: 11pt;
+         font-weight: bold;
+        }
+       </string>
+      </property>
+      <property name="gridVisible">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="statsLabel">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(57, 60, 255); font-size: 10pt; padding: 8px; background-color: #f0f6ff; border-radius: 4px;</string>
+      </property>
+      <property name="text">
+       <string>Click a date to see appointments</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="listLabel">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>350</y>
+     <width>241</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 12pt; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>Registered Patients</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="SearchPatient">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>350</y>
+     <width>270</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size: 11pt; color: rgb(0,0,0); background-color: white; border-radius: 4px;</string>
+   </property>
+   <property name="placeholderText">
+    <string>🔍 Search patients...</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="PatientsTable">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>390</y>
+     <width>520</width>
+     <height>260</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white; font-size: 10pt; color: rgb(0,0,0);</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>6</number>
+   </property>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>ID</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>DOB</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Phone</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Blood Type</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Registered</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
