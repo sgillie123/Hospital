@@ -10,7 +10,7 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import Qt
 from PyQt6.uic import loadUi
 
-# ─── In-memory data store ────────────────────────────────────────────────────
+# just test data
 users = {
     "patient1":      {"password": "pass", "role": "Patient",  "name": "Alice Johnson",
                       "email": "alice@email.com", "dob": "15/03/1990", "phone": "555-1001"},
@@ -45,7 +45,7 @@ diagnoses = [
 current_user = None
 
 
-# ─── Appointment Booking Popup ────────────────────────────────────────────────
+# booking popup
 class BookAppointmentDialog(QDialog):
     def __init__(self, parent=None, patient_name=""):
         super().__init__(parent)
@@ -145,7 +145,7 @@ class BookAppointmentDialog(QDialog):
         self.accept()
 
 
-# ─── Welcome Screen ───────────────────────────────────────────────────────────
+# Welcome
 class WelcomeScreen(QDialog):
     def __init__(self):
         super().__init__()
@@ -164,7 +164,7 @@ class WelcomeScreen(QDialog):
         widget.setCurrentIndex(index)
 
 
-# ─── Sign Up Screen ───────────────────────────────────────────────────────────
+# signup
 class SignScreen(QDialog):
     def __init__(self):
         super().__init__()
@@ -208,7 +208,7 @@ class SignScreen(QDialog):
             field.clear()
 
 
-# ─── Login Screen ─────────────────────────────────────────────────────────────
+# Login
 class LoginScreen(QDialog):
     def __init__(self):
         super().__init__()
@@ -217,11 +217,14 @@ class LoginScreen(QDialog):
         self.BackButton.clicked.connect(lambda: widget.setCurrentIndex(WELCOME))
         self.signupLink.linkActivated.connect(self._go_signup)
         self.RoleCombo.currentTextChanged.connect(self._on_role_changed)
+        self._on_role_changed(self.RoleCombo.currentText())
 
     def _on_role_changed(self, role):
         is_staff = role in ("Doctor", "Staff / Receptionist")
         self.lEmployeeID.setVisible(is_staff)
         self.EmployeeID.setVisible(is_staff)
+        self.lRole.setVisible(is_staff)
+        self.RoleCombo.setVisible(is_staff)
         if not is_staff:
             self.EmployeeID.clear()
 
@@ -247,7 +250,7 @@ class LoginScreen(QDialog):
                 f"⚠  This account is registered as '{u['role']}', not '{role}'.")
             return
 
-        # Validate employee ID for Doctor/Staff
+        # employee id popup
         if role in ("Doctor", "Staff / Receptionist"):
             entered_id = self.EmployeeID.text().strip()
             if not entered_id:
@@ -270,7 +273,7 @@ class LoginScreen(QDialog):
             widget.setCurrentIndex(STAFF)
 
 
-# ─── Patient Dashboard ─────────────────────────────────────────────────────────
+# opening patient dashboard
 class PatientDashboard(QDialog):
     def __init__(self):
         super().__init__()
@@ -325,7 +328,7 @@ class PatientDashboard(QDialog):
         widget.setCurrentIndex(WELCOME)
 
 
-# ─── Doctor Dashboard ──────────────────────────────────────────────────────────
+# doctor
 class DoctorDashboard(QDialog):
     def __init__(self):
         super().__init__()
@@ -387,7 +390,7 @@ class DoctorDashboard(QDialog):
         widget.setCurrentIndex(WELCOME)
 
 
-# ─── Staff Dashboard ───────────────────────────────────────────────────────────
+# staffing dashboard
 class StaffDashboard(QDialog):
     def __init__(self):
         super().__init__()
@@ -470,13 +473,12 @@ class StaffDashboard(QDialog):
         widget.setCurrentIndex(WELCOME)
 
 
-# ─── App bootstrap ─────────────────────────────────────────────────────────────
 app = QApplication(sys.argv)
 app.setFont(QtGui.QFont("Segoe UI", 10))
 
 widget = QStackedWidget()
 widget.setFixedSize(900, 620)
-widget.setWindowTitle("MediCare — Hospital Management System")
+widget.setWindowTitle("Dont Drop Dead — Hospital Management System")
 
 WELCOME = 0
 LOGIN   = 1

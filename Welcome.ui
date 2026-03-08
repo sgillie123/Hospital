@@ -3,58 +3,140 @@
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
   <property name="geometry">
-   <rect><x>0</x><y>0</y><width>900</width><height>620</height></rect>
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>620</height>
+   </rect>
   </property>
-  <property name="windowTitle"><string>Hospital System</string></property>
+  <property name="windowTitle">
+   <string>Hospital System</string>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(226, 241, 255);</string>
   </property>
-
   <widget class="QLabel" name="titleLabel">
-   <property name="geometry"><rect><x>0</x><y>80</y><width>900</width><height>70</height></rect></property>
-   <property name="styleSheet"><string notr="true">color: rgb(57, 60, 255); font-size: 26pt; font-weight: bold;</string></property>
-   <property name="text"><string>Dont Drop Dead Hospital</string></property>
-   <property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>80</y>
+     <width>900</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 26pt; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>Dont Drop Dead </string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
   </widget>
-
   <widget class="QLabel" name="subtitleLabel">
-   <property name="geometry"><rect><x>0</x><y>162</y><width>900</width><height>28</height></rect></property>
-   <property name="styleSheet"><string notr="true">color: rgb(57, 60, 255); font-size: 12pt;</string></property>
-   <property name="text"><string>Welcome! Please select who you are to continue.</string></property>
-   <property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>162</y>
+     <width>900</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 12pt;</string>
+   </property>
+   <property name="text">
+    <string>Welcome! Please select who you are to continue.</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
   </widget>
-
   <widget class="QPushButton" name="PatientButton">
-   <property name="geometry"><rect><x>300</x><y>215</y><width>300</width><height>50</height></rect></property>
-   <property name="styleSheet"><string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 13pt; border-radius: 5px;</string></property>
-   <property name="text"><string>I am a Patient</string></property>
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>215</y>
+     <width>300</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 13pt; border-radius: 5px;</string>
+   </property>
+   <property name="text">
+    <string>I am a Patient</string>
+   </property>
   </widget>
-
   <widget class="QPushButton" name="DoctorButton">
-   <property name="geometry"><rect><x>300</x><y>285</y><width>300</width><height>50</height></rect></property>
-   <property name="styleSheet"><string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 13pt; border-radius: 5px;</string></property>
-   <property name="text"><string>I am a Doctor</string></property>
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>285</y>
+     <width>300</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 13pt; border-radius: 5px;</string>
+   </property>
+   <property name="text">
+    <string>I am a Doctor</string>
+   </property>
   </widget>
-
   <widget class="QPushButton" name="StaffButton">
-   <property name="geometry"><rect><x>300</x><y>355</y><width>300</width><height>50</height></rect></property>
-   <property name="styleSheet"><string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 13pt; border-radius: 5px;</string></property>
-   <property name="text"><string>I am Staff / Receptionist</string></property>
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>355</y>
+     <width>300</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(57, 60, 255); color: white; font-size: 13pt; border-radius: 5px;</string>
+   </property>
+   <property name="text">
+    <string>I am Staff / Receptionist</string>
+   </property>
   </widget>
-
   <widget class="QLabel" name="orLabel">
-   <property name="geometry"><rect><x>0</x><y>428</y><width>900</width><height>24</height></rect></property>
-   <property name="styleSheet"><string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string></property>
-   <property name="text"><string>— New here? —</string></property>
-   <property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>428</y>
+     <width>900</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(57, 60, 255); font-size: 11pt;</string>
+   </property>
+   <property name="text">
+    <string>— New here? —</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
   </widget>
-
   <widget class="QPushButton" name="CreateAccountButton">
-   <property name="geometry"><rect><x>330</x><y>462</y><width>240</width><height>46</height></rect></property>
-   <property name="styleSheet"><string notr="true">background-color: white; color: rgb(57, 60, 255); font-size: 13pt; border-radius: 5px; border: 2px solid rgb(57, 60, 255);</string></property>
-   <property name="text"><string>Create Account</string></property>
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>462</y>
+     <width>240</width>
+     <height>46</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white; color: rgb(57, 60, 255); font-size: 13pt; border-radius: 5px; border: 2px solid rgb(57, 60, 255);</string>
+   </property>
+   <property name="text">
+    <string>Create Account</string>
+   </property>
   </widget>
-
  </widget>
  <resources/>
  <connections/>
