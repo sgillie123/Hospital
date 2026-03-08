@@ -1,4 +1,5 @@
 import sys
+import re
 from datetime import datetime
 from PyQt6 import QtWidgets, QtCore, QtGui
 from PyQt6.QtWidgets import (
@@ -67,7 +68,7 @@ class BookAppointmentDialog(QDialog):
         layout.setSpacing(12)
         layout.setContentsMargins(30, 24, 30, 24)
 
-        title = QLabel("📅  Book New Appointment")
+        title = QLabel("Book New Appointment")
         title.setStyleSheet("font-size: 15pt; font-weight: bold; color: #1e293b;")
         layout.addWidget(title)
 
@@ -161,6 +162,7 @@ class WelcomeScreen(QDialog):
 
     def _go(self, index, role):
         login_screen.RoleCombo.setCurrentText(role)
+        login_screen._on_role_changed(role)  # Update Employee ID visibility
         widget.setCurrentIndex(index)
 
 
@@ -172,19 +174,48 @@ class SignScreen(QDialog):
         self.CreateButton.clicked.connect(self.create_account)
         self.BackButton.clicked.connect(lambda: widget.setCurrentIndex(WELCOME))
         self.loginLink.linkActivated.connect(lambda _: widget.setCurrentIndex(LOGIN))
+        self.RoleCombo.currentTextChanged.connect(self._on_role_changed)
+        self._on_role_changed(self.RoleCombo.currentText())
+
+    def _on_role_changed(self, role):
+        # Show Employee ID field only for Doctor or Staff
+        is_staff = role in ("Doctor", "Staff / Receptionist")
+        self.label_8.setVisible(is_staff)  # "If Applicable - Employee ID" label
+        self.EmployeeID.setVisible(is_staff)
+        if not is_staff:
+            self.EmployeeID.clear()
 
     def create_account(self):
         name     = self.Name.text().strip()
         username = self.Username.text().strip()
         email    = self.Email.text().strip()
         password = self.Password.text()
-        dob      = self.DOB.text().strip()
+        dob      = self.DOB.date().toString("dd/MM/yyyy")
         emp_id   = self.EmployeeID.text().strip()
         role     = self.RoleCombo.currentText()
 
-        if not all([name, username, email, password, dob]):
+        if not all([name, username, email, password]):
             self.errorLabel.setText("⚠  Please fill in all required fields.")
             return
+        if not re.match(r'^[A-Za-z ]+$', name):
+            self.errorLabel.setText("⚠  Name must contain letters only.")
+            return
+        if not re.match(r'^[\w\.-]+@[\w\.-]+\.com$', email):
+            self.errorLabel.setText("⚠  Enter a valid email (e.g. name@example.com).")
+            return
+        if not re.match(r'^[A-Za-z0-9]+$', username):
+            self.errorLabel.setText("⚠  Username must be letters and numbers only.")
+            return
+        
+        # Check Employee ID for staff/doctor accounts
+        if role in ("Doctor", "Staff / Receptionist"):
+            if not emp_id:
+                self.errorLabel.setText("⚠  Employee ID is required for staff and doctors.")
+                return
+            if not re.match(r'^[A-Za-z0-9]+$', emp_id):
+                self.errorLabel.setText("⚠  Employee ID must be letters and numbers only.")
+                return
+        
         if len(password) < 6:
             self.errorLabel.setText("⚠  Password must be at least 6 characters.")
             return
@@ -194,7 +225,7 @@ class SignScreen(QDialog):
 
         users[username] = {
             "password": password, "role": role, "name": name,
-            "email": email, "dob": dob, "employee_id": emp_id
+            "email": email, "dob": dob, "employee_id": emp_id if emp_id else None
         }
         self.errorLabel.setStyleSheet("color: #16a34a;")
         self.errorLabel.setText("✅  Account created! Redirecting to login…")
@@ -203,9 +234,11 @@ class SignScreen(QDialog):
     def reset(self):
         self.errorLabel.setText("")
         self.errorLabel.setStyleSheet("color: #dc2626;")
-        for field in [self.Name, self.Username, self.Email, self.Password,
-                      self.DOB, self.EmployeeID]:
+        for field in [self.Name, self.Username, self.Email, self.Password, self.EmployeeID]:
             field.clear()
+        self.DOB.setDate(QtCore.QDate.currentDate())
+        self.RoleCombo.setCurrentText("Patient")
+        self._on_role_changed("Patient")
 
 
 # Login
@@ -223,8 +256,6 @@ class LoginScreen(QDialog):
         is_staff = role in ("Doctor", "Staff / Receptionist")
         self.lEmployeeID.setVisible(is_staff)
         self.EmployeeID.setVisible(is_staff)
-        self.lRole.setVisible(is_staff)
-        self.RoleCombo.setVisible(is_staff)
         if not is_staff:
             self.EmployeeID.clear()
 
@@ -250,7 +281,7 @@ class LoginScreen(QDialog):
                 f"⚠  This account is registered as '{u['role']}', not '{role}'.")
             return
 
-        # employee id popup
+        # employee id validation
         if role in ("Doctor", "Staff / Receptionist"):
             entered_id = self.EmployeeID.text().strip()
             if not entered_id:
@@ -349,7 +380,7 @@ class DoctorDashboard(QDialog):
         count = len([a for a in appointments if a["date"] == today])
         self.docSub.setText(f"You have {count} appointment(s) today  •  {today}")
         self._refresh_appointments(user["name"])
-        self.DiagDate.setText(today)
+        self.DiagDate.setDate(QtCore.QDate.currentDate())
 
     def _refresh_appointments(self, doctor_name):
         my_appts = [a for a in appointments
@@ -357,20 +388,20 @@ class DoctorDashboard(QDialog):
         tbl = self.AppointmentsTable
         tbl.setRowCount(len(my_appts))
         for r, a in enumerate(my_appts):
-            for c, val in enumerate([a["time"], a["patient"], a["reason"], a["status"], "View"]):
+            for c, val in enumerate([a["time"], a["patient"], a["reason"], a["status"]]):
                 item = QTableWidgetItem(val)
                 item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
                 tbl.setItem(r, c, item)
 
     def save_diagnosis(self):
         patient = self.DiagPatientID.text().strip()
-        date    = self.DiagDate.text().strip()
+        date    = self.DiagDate.date().toString("dd/MM/yyyy")
         diag    = self.DiagnosisField.text().strip()
         notes   = self.NotesField.text().strip()
 
-        if not all([patient, date, diag]):
+        if not all([patient, diag]):
             QMessageBox.warning(self, "Missing Info",
-                                "Please fill in Patient, Date, and Diagnosis.")
+                                "Please fill in Patient and Diagnosis.")
             return
 
         diagnoses.append({
@@ -426,7 +457,7 @@ class StaffDashboard(QDialog):
 
     def register_patient(self):
         name   = self.PatName.text().strip()
-        dob    = self.PatDOB.text().strip()
+        dob    = self.PatDOB.date().toString("dd/MM/yyyy")
         gender = self.PatGender.currentText()
         email  = self.PatEmail.text().strip()
         phone  = self.PatPhone.text().strip()
@@ -462,9 +493,10 @@ class StaffDashboard(QDialog):
             f"Password   : {dob.replace('/', '')}  (date of birth digits)\n\n"
             "Please share these credentials with the patient."
         )
-        for f in [self.PatName, self.PatDOB, self.PatEmail,
+        for f in [self.PatName, self.PatEmail,
                   self.PatPhone, self.PatAddress, self.EmergContact]:
             f.clear()
+        self.PatDOB.setDate(QtCore.QDate.currentDate())
         self._refresh_patients()
 
     def logout(self):

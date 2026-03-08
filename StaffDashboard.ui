@@ -154,7 +154,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-size: 11pt; background-color: white;</string>
+    <string notr="true">font-size: 11pt; background-color: white; color: rgb(0,0,0);</string>
    </property>
    <item>
     <property name="text">
@@ -256,7 +256,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-size: 11pt; background-color: white;</string>
+    <string notr="true">font-size: 11pt; background-color: white; color: rgb(0,0,0);</string>
    </property>
    <item>
     <property name="text">
